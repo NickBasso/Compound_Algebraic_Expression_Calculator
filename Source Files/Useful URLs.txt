@@ -1,0 +1,1 @@
+char array to int C  ->  function http://www.cplusplus.com/reference/cstdlib/atoi/
