@@ -11,7 +11,7 @@ double calculate(char *s, int size){
 	char operation = 0;
 	
 	while(s[i] != '\0' && i < size){
-		if(operationPriority[s[i]] > curPr){
+		if(operationPriority[s[i]] >= curPr){
 			curPr = operationPriority[s[i]];
 			operation = s[i];
 			pos = i;
