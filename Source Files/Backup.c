@@ -1,18 +1,8 @@
-/*
-TO DO:
-
-String to double (StringToDouble)
-Remove spaces (removeSpaces)
-Square root (sqrt)
-
-*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "..\Trigonometric Functions\CoreMath.h"
 
 #define N 1000
-#define bool char
 #define true 1
 #define false 0
 
@@ -20,20 +10,15 @@ int operationPriority[255] = {0};
 
 void Throw_Exception();
 
-char isInBrackets(char *s, int size);
+int isInBrackets(char *s, int size);
 double calculateInBrackets(char *s, int size);
 
-char isAlgebraicFunction(char *s);
+int isAlgebraicFunction(char *s);
 double calculateAlgebraicFunction(char *s);
 
-char isNumber(char *s);
+int isNumber(char *s);
 double convertToNumber(char *s);
 
-void removeSpaces(char *s);
-
-double StringToDouble(char *s);
-
-double sqrt(char *s);
 
 double calculate(char *s){
 	int i = 0;
@@ -79,6 +64,39 @@ double calculate(char *s){
 	else{
 		Throw_Exception();
 	}
+	
+	
+	/*else if(s[0] == '(' && s[i - 1] == ')'){
+		s[0] = 0;
+		s[i - 1] = 0;
+		return calculate(s + 1);
+	}	
+	else if(s[0] == 's' && s[1] == 'i' && s[2] == 'n'){
+		return sin(calculate(s + 3));
+	}
+	else if(s[0] == 'c' && s[1] == 'o' && s[2] == 's'){
+		return cos(calculate(s + 3));
+	}
+	else if(s[0] == 't' && s[1] == 'a' && s[2] == 'n'){
+		return tan(calculate(s + 3));
+	}
+	else if(s[0] == 'c' && s[1] == 'o' && s[2] == 't'){
+		return cot(calculate(s + 3));
+	}
+	else if(s[0] >= '0' && s[0] <= '9'){
+		i = 0;
+		
+		while((s[i] >= '0' && s[i] <= '9') || s[i] == '.')
+			i++;
+			
+		return atof(s);
+	}
+	else if(s[0] == 0){
+		return 0.0;
+	}
+	else{
+		Throw_Exception();
+	}*/
 }
 
 int main(){
@@ -103,7 +121,7 @@ void Throw_Exception(){
 	exit(0);
 }
 
-char isInBrackets(char *s, int size){
+int isInBrackets(char *s, int size){
 	if(s[0] == '(' && s[size - 1] == ')'){
 		return true;
 	}
@@ -118,7 +136,7 @@ double calculateInBrackets(char *s, int size){
 	return calculate(s + 1);
 }
 
-char isAlgebraicFunction(char *s){
+int isAlgebraicFunction(char *s){
 	if(s[0] == 's' && s[1] == 'i' && s[2] == 'n'){
 		return true;
 	}
@@ -151,7 +169,7 @@ double calculateAlgebraicFunction(char *s){
 	}
 }
 
-char isNumber(char *s){
+int isNumber(char *s){
 	if(s[0] >= '0' && s[0] <= '9'){
 		int i = 0;
 		
@@ -170,16 +188,4 @@ char isNumber(char *s){
 
 double convertToNumber(char *s){
 	return atof(s);
-}
-
-double StringToDouble(char *s){
-	
-}
-
-void removeSpaces(char *s){
-	
-}
-
-double sqrt(char *s){
-	
 }
