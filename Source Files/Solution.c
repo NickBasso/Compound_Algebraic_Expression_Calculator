@@ -33,8 +33,6 @@ void removeSpaces(char *s);
 
 double StringToDouble(char *s);
 
-double sqrt(char *s);
-
 double calculate(char *s){
 	int i = 0;
 	int curPr = 0;
@@ -119,6 +117,9 @@ double calculateInBrackets(char *s, int size){
 }
 
 char isAlgebraicFunction(char *s){
+	if(s[0] == 's' && s[1] == 'q' && s[2] == 'r' && s[3] == 't'){
+		return true;
+	}
 	if(s[0] == 's' && s[1] == 'i' && s[2] == 'n'){
 		return true;
 	}
@@ -137,6 +138,9 @@ char isAlgebraicFunction(char *s){
 }
 
 double calculateAlgebraicFunction(char *s){
+	if(s[0] == 's' && s[1] == 'q' && s[2] == 'r' && s[3] == 't'){
+		return sqrt(calculate(s + 4));
+	}
 	if(s[0] == 's' && s[1] == 'i' && s[2] == 'n'){
 		return sin(calculate(s + 3));
 	}
@@ -173,13 +177,47 @@ double convertToNumber(char *s){
 }
 
 double StringToDouble(char *s){
+	/*132
+	1 * 0 + 2
+	1 * 10 + 3
+	1 * 100 + 1*/
 	
+	int i = 0;
+	int dots = 0;
+	
+	while(s[i] >= '0' && s[i] <= '9' || s[i] == ' '){
+		if(s[i] == '.'){
+			dots++;
+		}
+			
+		i++;
+	}
+	
+	int length = i;
+	
+	if(dots > 1){
+		Throw_Exception();
+	}
+	
+	double number = 0.0;
+	
+	int k = 0;
+	int j;
+	
+	for(i = length - 1; i >= 0; i++){
+		number += (s[i] - '0') % 10 - 1;
+		
+		int powerOfTen = 1;
+		
+		for(j = 0; j < k; j++)
+			powerOfTen *= 10;
+			
+		number += powerOfTen;
+		
+		k++;
+	}
 }
 
 void removeSpaces(char *s){
-	
-}
-
-double sqrt(char *s){
 	
 }

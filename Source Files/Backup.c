@@ -101,17 +101,25 @@ double calculate(char *s){
 
 int main(){
 	// input block
-	freopen("input.txt", "r", stdin);	
-	char s[N] = {0};
-	gets(s);
-	printf("%s\n", s);
+	//freopen("input.txt", "r", stdin);	
+	//char s[N] = {0};
+	//gets(s);
+	//printf("%s\n", s);
 	
-	double x = atof(s);
+	//double x = atof(s);
 	
 	operationPriority['+'] = operationPriority['-'] = -2;
 	operationPriority['*'] = operationPriority['/'] = -1;
 	
-	printf("%lf", calculate(&s[0]));
+	int i = 0;
+	
+	for(i = 0; i < 100; i++){
+		printf("%lf\n", sin((double)(i)));
+	}
+	
+	printf("\n\n%lf", sin((double)(45)));
+	
+	//printf("%lf", calculate(&s[0]));
 	
 	return 0;
 }
