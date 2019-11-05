@@ -1,22 +1,4 @@
-#include <stdio.h>
-
-double powerOfTen(int times){
-	int i = 0;
-	double result = 1.0;
-	
-	for(i = 0; i < times; i++){
-		result *= 10;
-	}	
-	
-	return result;
-}
-
-double StringToDouble(char *s){
-	/*132
-	1 * 0 + 2
-	1 * 10 + 3
-	1 * 100 + 1*/
-	
+double StringToDouble(char *s){	
 	int i = 0;
 	int dots = 0;
 	int dotPosition = -1;
@@ -36,11 +18,6 @@ double StringToDouble(char *s){
 		dotPosition = length;
 	}
 	
-	/*if(dots > 1){
-		printf("WRONG\n");
-		return 0;
-	}*/
-	
 	double number = 0.0;
 	double integralPart = 0.0;
 	double fractionalPart = 0.0;
@@ -52,7 +29,7 @@ double StringToDouble(char *s){
 	for(i = length - 1; i > dotPosition; i--){
 		curDigit = (s[i] - '0') % 10;
 			
-		fractionalPart += powerOfTen(k) * curDigit;
+		fractionalPart += PowerOfTen(k) * curDigit;
 		
 		k++;
 	}
@@ -62,12 +39,12 @@ double StringToDouble(char *s){
 	for(i = dotPosition - 1; i >= 0; i--){
 		curDigit = (s[i] - '0') % 10;
 
-		integralPart += powerOfTen(k) * curDigit;
+		integralPart += PowerOfTen(k) * curDigit;
 		
 		k++;
 	}
 	
-	number = integralPart + fractionalPart / powerOfTen(length - dotPosition - 1);
+	number = integralPart + fractionalPart / PowerOfTen(length - dotPosition - 1);
 	
 	return number;
 }
@@ -82,7 +59,7 @@ int StringLength(char *s){
 	return i;
 }
 
-void RemoveSpaces(char *s){
+bool RemoveSpaces(char *s){
 	int i = 0;
 	int len = StringLength(s);
 	
@@ -98,22 +75,38 @@ void RemoveSpaces(char *s){
 			s[j] = ' ';
 		}
 	}
+	
+	i = 0;
+	while(s[i] != '\0'){
+		i++;
+	}
+	
+	if(i != len){
+		return true;
+	}
+	else{
+		return false;
+	}
 }
 
-main(){
-	//printf("%lf", sin(10000));
+char isNumber(char *s){
+	int dotsCount = 0;
 	
-	char s[100] = "21  3.44   44  4 4 4  4        4";
-	printf("%s\n", s);
-	/*double d;
-	scanf("%lf", &d);
-	printf("%.10lf\n", d);
-	d = 12;
-	printf("%.10lf\n", d);*/
-	
-	//printf("%.10lf", StringToDouble(s));
-	RemoveSpaces(s);
-	printf("%s\n", s);
-	
-	return 0;
+	if(s[0] >= '0' && s[0] <= '9'){
+		int i = 0;
+		
+		while((s[i] >= '0' && s[i] <= '9') || s[i] == '.'){
+			i++;
+		}
+		
+		if(dotsCount < 2){
+			return true;
+		}			
+	}
+	else if(s[0] == 0){
+		return true;
+	}
+	else{
+		return false;
+	}
 }
