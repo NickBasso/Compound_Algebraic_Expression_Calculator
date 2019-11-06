@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void Throw_Exception(){
+int Throw_Exception(){
 	puts("Incorrect algebraic expression entered!");
-	exit(0);
+	return -1;	
 }

@@ -1,3 +1,34 @@
+double abs(double number){
+	if(number < 0)
+		return -number;
+	else
+		return number;
+}
+
+double pow(double number, int exponent){
+	if(exponent == 0){
+		return 1.0;
+	}
+	
+	double base = number;
+	bool isNegative = false;
+	
+	if(exponent < 0){
+		isNegative = true;
+		exponent = -exponent;
+	}
+	
+	for(int i = 1; i < exponent; i++){
+		number *= base;
+	}
+	
+	if(isNegative == true){
+		number = 1.0 / number;
+	}
+	
+	return number;
+}
+
 double PowerOfTen(int times){
 	int i = 0;
 	double result = 1.0;

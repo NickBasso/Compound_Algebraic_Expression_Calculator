@@ -35,6 +35,7 @@ double calculate(char *s){
 			case '-' : return calculate(s) - calculate(s + pos + 1);
 			case '*' : return calculate(s) * calculate(s + pos + 1);
 			case '/' : return calculate(s) / calculate(s + pos + 1);
+			case '^' : return pow(calculate(s), calculate(s + pos + 1));
 		}
 	}
 	else if(isInBrackets(s, i) == true){

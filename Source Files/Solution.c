@@ -23,7 +23,7 @@ int main(){
 	
 	// set operation priority for the main algorithm logic
 	operationPriority['+'] = operationPriority['-'] = -2;
-	operationPriority['*'] = operationPriority['/'] = -1;
+	operationPriority['*'] = operationPriority['/'] = operationPriority['^'] = -1;
 	
 	// remove all spaces and print the string again 
 	if(RemoveSpaces(s) == true){
