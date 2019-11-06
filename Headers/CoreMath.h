@@ -1,4 +1,13 @@
-const double Pi = 3.1415926535897932;
+double PowerOfTen(int times){
+	int i = 0;
+	double result = 1.0;
+	
+	for(i = 0; i < times; i++){
+		result *= 10;
+	}	
+	
+	return result;
+}
 
 double sin(double x) {
     int i, n = 1000;
@@ -13,7 +22,7 @@ double sin(double x) {
     t = x;
     sum = x;
 
-    for (i = 1; i <= n; i++) {
+    for (i = 1; i <= n; i++){
         t = ((-1) * t * x * x) / (2 * i * (2 * i + 1));
         sum = sum + t;
     }
@@ -51,7 +60,7 @@ double cot(double x){
 double sqrt(double n){ 
     double x = n; 
     double y = 1; 
-    double e = 0.000001; 							
+    double e = 0.000000001; 							
     while (x - y > e) { 
         x = (x + y) / 2; 
         y = n / x; 
