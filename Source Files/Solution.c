@@ -1,13 +1,8 @@
-/*
-TO DO:
-	exponential functions
-*/
-
 #include <stdio.h>
 
-// !Warning! DON'T CHANGE THE ORDER! SOB@KI
+// !Warning! DON'T CHANGE THE ORDER!
 #include "..\Headers\Exceptions.h"					// Exceptions
-#include "..\Headers\PredefinedDesignations.h"		// Predefined Designations (Предопределенные обозначения #define)
+#include "..\Headers\PredefinedDesignations.h"		// Predefined Designations
 #include "..\Headers\MathConstants.h"				// Mathematical constants
 #include "..\Headers\CoreMath.h"					// Algebraic functions
 #include "..\Headers\Strings.h"						// Operations on strings

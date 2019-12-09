@@ -17,8 +17,8 @@ double pow(double number, int exponent){
 		isNegative = true;
 		exponent = -exponent;
 	}
-	
-	for(int i = 1; i < exponent; i++){
+	int i;
+	for(i = 1; i < exponent; i++){
 		number *= base;
 	}
 	

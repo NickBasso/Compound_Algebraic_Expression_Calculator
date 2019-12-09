@@ -1,6 +1,6 @@
 int operationPriority[255] = {0};
 
-char isInBrackets(char *s, int size);
+char isInBrackets();
 double calculateInBrackets();
 char isAlgebraicFunction();
 double calculateAlgebraicExpression();
